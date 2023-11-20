@@ -2,7 +2,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link elevation-4">
-        <span class="brand-text font-weight-light mx-auto">TP Final
+        <span class="brand-text font-weight-light mx-auto">PHP – Trabajo final
         </span>
     </a>
 
