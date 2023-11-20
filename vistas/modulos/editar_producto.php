@@ -76,7 +76,7 @@ $producto = ControladorProductos::ctrMostrarProductos("id_producto", $_GET["prod
                         <label for="imagen_producto">Imagen</label>
                         <div class="custom-file">
                             <label for="exampleInputEmail1" class="custom-file-label">Subir una imagen</label>
-                            <input type="file" name="imagen_producto" value="<?php echo $producto["imagen_producto"];?>"
+                            <input type="file" name="imagen_producto"
                             id="imagen_producto" class="custom-file-input"
                             accept="image/jpeg, image/png">
                         </div>
@@ -94,6 +94,7 @@ $producto = ControladorProductos::ctrMostrarProductos("id_producto", $_GET["prod
                 ?>
 
                 <input type="hidden" name="id_producto" value="<?php echo $_GET["producto"]; ?>">
+                <input type="hidden" name="imagen_producto" value="<?php echo $producto['imagen_producto'];?>">
 
                 <div class="card-footer">
                     <button type="submit" class="btn btn-primary">Guardar</button>

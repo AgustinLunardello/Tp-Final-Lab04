@@ -135,12 +135,83 @@ class ControladorProductos
                     </script>';
                 return;
             }
+            if (isset($_FILES["imagen_producto"]["tmp_name"])) {
+                if ($_FILES["imagen_producto"]["tmp_name"] == "") {
+                    $directorio = $directorio = "./vistas/imagenes/productos/";
+                    $nombre = funciones::generar_url($_POST["nombre_producto"]);
+                    $rutaAntigua = $_POST["imagen_producto"];
+                    $rutaNueva = $directorio . $nombre . "jpeg";
+                    if (file_exists($rutaAntigua)) {
+                        if (rename($rutaAntigua, $rutaNueva)) {
+                            $imagen = $rutaNueva;
+                        }
+                    }
+                } else {
+                    list($ancho, $alto) =
+                        getimagesize($_FILES["imagen_producto"]["tmp_name"]);
+                    $nuevoAncho = $ancho;
+                    $nuevoAlto = $alto;
+                    $directorio = "./vistas/imagenes/productos/";
+                    mkdir($directorio, 0755, true);
 
+                    if ($_FILES["imagen_producto"]["type"] == "image/jpeg") {
+
+                        $nombre =
+                            funciones::generar_url($_POST["nombre_producto"]);
+                        $imagen =
+                            "./vistas/imagenes/productos/" . $nombre . ".jpeg";
+                        $origen = imagecreatefromjpeg($_FILES["imagen_producto"]["tmp_name"]);
+                        $destino = imagecreatetruecolor(
+                            $nuevoAncho,
+                            $nuevoAlto
+                        );
+                        imagecopyresized(
+                            $destino,
+                            $origen,
+                            0,
+                            0,
+                            0,
+                            0,
+                            $nuevoAncho,
+                            $nuevoAlto,
+                            $ancho,
+                            $alto
+                        );
+                        imagejpeg($destino, $imagen);
+                    }
+                    if ($_FILES["imagen_producto"]["type"] == "image/png") {
+
+                        $nombre =
+                            funciones::generar_url($_POST["nombre_producto"]);
+                        $imagen =
+                            "./vistas/imagenes/productos/" . $nombre . ".png";
+                        $origen =
+                            imagecreatefrompng($_FILES["imagen_producto"]["tmp_name"]);
+                        $destino = imagecreatetruecolor(
+                            $nuevoAncho,
+                            $nuevoAlto
+                        );
+                        imagecopyresized(
+                            $destino,
+                            $origen,
+                            0,
+                            0,
+                            0,
+                            0,
+                            $nuevoAncho,
+                            $nuevoAlto,
+                            $ancho,
+                            $alto
+                        );
+                        imagepng($destino, $imagen);
+                    }
+                }
+            }
             $tabla = "productos"; //nombre de la tabla
             $datos = array(
                 "nombre_producto" => $_POST["nombre_producto"],
                 "precio_producto" => $_POST["precio_producto"],
-                "imagen_producto" => $_FILES["imagen_producto"],
+                "imagen_producto" => $imagen,
                 "id_categoria" => $_POST["id_categoria"],
                 "stock_producto" => $_POST['stock_producto'],
                 "estado_producto" => $_POST['estado_producto'],
