@@ -2,6 +2,11 @@
 
 ### Temas: PHP – Trabajo final
 
+#### Esta version es para el localhost
+
+- **correo:** admin@admin.com
+- **password:** 12345
+
 Se creará un panel de control completo:
 Módulos
 
