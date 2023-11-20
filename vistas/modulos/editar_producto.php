@@ -27,25 +27,34 @@ $producto = ControladorProductos::ctrMostrarProductos("id_producto", $_GET["prod
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="post" enctype="multipart/form-data">
+            <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
                 <div class="card-body">
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Nombre</label>
                         <input type="text" name="nombre_producto" value="<?php echo $producto["nombre_producto"]; ?>"
                             class="form-control" placeholder="Ingrese el nombre" required>
+                            <div class="invalid-tooltip">
+                            Por favor ingrese un nombre.
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Precio</label>
                         <input type="number" min="0" step="0.01" name="precio_producto" value="<?php echo $producto["precio_producto"]; ?>"
                             class="form-control" placeholder="Ingrese el precio del producto" required>
+                            <div class="invalid-tooltip">
+                            Por favor ingrese un precio.
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Stock</label>
                         <input type="number" min="0" step="0.01" name="stock_producto" value="<?php echo $producto["stock_producto"]; ?>"
                             class="form-control" placeholder="Ingrese el stock" required>
+                            <div class="invalid-tooltip">
+                            Por favor ingrese un stock.
+                        </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Categoria</label>
                         <select class="form-control" name="id_categoria" id="" required>
                             <?php
@@ -59,8 +68,11 @@ $producto = ControladorProductos::ctrMostrarProductos("id_producto", $_GET["prod
                             <?php } ?>
 
                         </select>
+                        <div class="invalid-tooltip">
+                            Seleccione una categoria.
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputPassword1">Estado</label>
                         <select name="estado_producto" id="" class="form-control" required>
                             <option <?php if ($producto['estado_producto'] == 1){ ?> selected<?php }?> value ="1">
@@ -70,6 +82,9 @@ $producto = ControladorProductos::ctrMostrarProductos("id_producto", $_GET["prod
                             Inactivo
                             </option>
                         </select>
+                        <div class="invalid-tooltip">
+                            Seleccione un estado.
+                        </div>
                     </div>
 
                     <div class="form-group">

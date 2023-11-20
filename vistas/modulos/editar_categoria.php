@@ -23,18 +23,24 @@ $categoria = ControladorCategorias::ctrMostrarCategorias("id_categoria", $_GET['
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="post">
+            <form method="post" class="needs-validation" novalidate>
                 <div class="card-body">
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Nombre</label>
                         <input type="text" name="nombre_categoria" value="<?php echo $categoria["nombre_categoria"]; ?>"
                             class="form-control" placeholder="" required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese un nombre.
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Descripcion</label>
                         <input type="text" name="descripcion_categoria"
                             value="<?php echo $categoria["descripcion_categoria"]; ?>" class="form-control"
                             placeholder="" required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese una descripcion.
+                        </div>
                     </div>
 
                     <input type="hidden" name="id_categoria" value="<?php echo $_GET["categoria"]; ?>">

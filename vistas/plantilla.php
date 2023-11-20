@@ -101,6 +101,7 @@ if (!(isset($_SESSION["iniciarSesion"]))) {
             <!-- AdminLTE App -->
             <script src="<?php echo $url; ?>vistas/js/adminlte.min.js"></script>
             <script src="<?php echo $url; ?>vistas/js/validar_imagen.js"></script>
+            <script src="<?php echo $url; ?>vistas/js/validar_forms.js"></script>
 
 
         </body>

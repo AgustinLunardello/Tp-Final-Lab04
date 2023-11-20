@@ -20,17 +20,23 @@
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="post">
+            <form method="post" class="needs-validation" novalidate>
                 <div class="card-body">
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Nombre del Tipo de Usuario</label>
                         <input type="text" name="nombre_tipo_usuario" class="form-control"
                             placeholder="Ingrese el nombre del nuevo tipo" required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese un nombre.
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Descripcion</label>
                         <input type="text" name="descripcion_tipo_usuario" class="form-control"
                             placeholder="Ingrese una descripcion" required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese una descripcion.
+                        </div>
                     </div>
 
                 </div>

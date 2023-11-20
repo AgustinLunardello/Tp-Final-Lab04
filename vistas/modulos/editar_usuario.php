@@ -27,25 +27,34 @@ $usuario = ControladorUsuarios::ctrMostrarUsuarios("id_usuario", $_GET["usuario"
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="post">
+            <form method="post" class="needs-validation" novalidate>
                 <div class="card-body">
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Nombre</label>
                         <input type="text" name="nombre_usuario" value="<?php echo $usuario["nombre_usuario"]; ?>"
                             class="form-control" placeholder="Ingrese el nombre" required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese un Nombre.
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Apellido</label>
                         <input type="text" name="apellido_usuario" value="<?php echo $usuario["apellido_usuario"]; ?>"
                             class="form-control" placeholder="Ingrese el apellido" required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese un Apellido.
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Email</label>
                         <input type="email" name="email_usuario" value="<?php echo $usuario["email_usuario"]; ?>"
                             class="form-control" placeholder="Ingrese un email" required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese un Correo.
+                        </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Tipo</label>
                         <select class="form-control" name="tipo_usuario" id="" required>
 
@@ -60,8 +69,11 @@ $usuario = ControladorUsuarios::ctrMostrarUsuarios("id_usuario", $_GET["usuario"
                             <?php } ?>
 
                         </select>
+                        <div class="invalid-tooltip">
+                            Por favor selecione un Tipo de Usuario.
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputPassword1">Estado</label>
                         <select name="estado_usuario" id="" class="form-control" required>
                             <option <?php if ($usuario['estado_usuario'] == 1){ ?> selected<?php }?> value ="1">
@@ -73,9 +85,12 @@ $usuario = ControladorUsuarios::ctrMostrarUsuarios("id_usuario", $_GET["usuario"
                         </select>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputPassword1">Contraseña</label>
-                        <input type="password" class="form-control" name="password_usuario" placeholder="Password">
+                        <input type="password" class="form-control" name="password_usuario" placeholder="Password" required>
+                        <div class="invalid-tooltip" >
+                            Por favor ingrese una contraseña.
+                        </div>
                     </div>
 
                 </div>

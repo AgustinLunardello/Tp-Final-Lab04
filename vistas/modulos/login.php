@@ -29,9 +29,12 @@
             <div class="card-body login-card-body">
                 <p class="login-box-msg">Iniciar sessión</p>
 
-                <form method="post">
+                <form method="post" class="needs-validation position-relative" novalidate>
                     <div class="input-group mb-3">
                         <input type="email" name="ingresoEmail" class="form-control" placeholder="Email" required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese un correo.
+                        </div>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -41,6 +44,9 @@
                     <div class="input-group mb-3">
                         <input type="password" name="ingresoPassword" class="form-control" placeholder="Password"
                             required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese una contraseña.
+                        </div>
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -74,6 +80,8 @@
     <!-- AdminLTE App -->
     <script src="<?php echo $url; ?>vistas/js/adminlte.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="<?php echo $url; ?>vistas/js/validar_forms.js"></script>
+
 </body>
 
 </html>

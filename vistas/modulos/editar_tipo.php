@@ -23,19 +23,25 @@ $tipo = ControladorTipos::ctrMostrarTipos("id_tipo_usuario", $_GET['tipo_usuario
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="post">
+            <form method="post" class="needs-validation" novalidate>
                 <div class="card-body">
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Nombre</label>
                         <input type="text" name="nombre_tipo_usuario"
                             value="<?php echo $tipo["nombre_tipo_usuario"]; ?>" class="form-control" placeholder=""
                             required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese un nombre.
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Descripcion</label>
                         <input type="text" name="descripcion_tipo_usuario"
                             value="<?php echo $tipo["descripcion_tipo_usuario"]; ?>" class="form-control" placeholder=""
                             required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese un nombre.
+                        </div>
                     </div>
 
                     <input type="hidden" name="id_tipo_usuario" value="<?php echo $_GET["tipo_usuario"]; ?>">

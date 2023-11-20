@@ -24,34 +24,49 @@ $estados_civiles = ControladorClientes::ctrMostrarEstadosCiviles();
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="post">
+            <form method="post" class="needs-validation" novalidate>
                 <div class="card-body">
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Nombre</label>
                         <input type="text" name="nombre_cliente" class="form-control" placeholder="Ingrese el nombre"
                             required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese un nombre.
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Apellido</label>
                         <input type="text" name="apellido_cliente" class="form-control"
                             placeholder="Ingrese el apellido" required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese un apellido.
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Email</label>
                         <input type="email" name="email_cliente" class="form-control" placeholder="Ingrese un email"
                             required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese un correo.
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">DNI</label>
                         <input type="text" name="dni_cliente" class="form-control" placeholder="Ingrese el DNI"
                             required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese un DNI.
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Fecha de Nacimiento</label>
                         <input type="date" name="fecha_nacimiento" class="form-control" required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese una fecha de nacimiento.
+                        </div>
                     </div>
 
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Estado Civil</label>
                         <select class="form-control" name="id_estado_civil" id="" required>
 
@@ -68,6 +83,9 @@ $estados_civiles = ControladorClientes::ctrMostrarEstadosCiviles();
 
 
                         </select>
+                        <div class="invalid-tooltip">
+                            Seleccione un estado civil
+                        </div>
                     </div>
 
                 </div>

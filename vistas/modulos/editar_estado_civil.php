@@ -23,19 +23,25 @@ $estado = ControladorEstadoCivil::ctrMostrarEstadosCiviles("id_estado_civil", $_
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form method="post">
+            <form method="post" class="needs-validation" novalidate>
                 <div class="card-body">
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Nombre</label>
                         <input type="text" name="nombre_estado_civil"
                             value="<?php echo $estado["nombre_estado_civil"]; ?>" class="form-control" placeholder=""
                             required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese un nombre.
+                        </div>
                     </div>
-                    <div class="form-group">
+                    <div class="form-group position-relative">
                         <label for="exampleInputEmail1">Descripcion</label>
                         <input type="text" name="descripcion_estado_civl"
                             value="<?php echo $estado["descripcion_estado_civl"]; ?>" class="form-control"
                             placeholder="" required>
+                        <div class="invalid-tooltip">
+                            Por favor ingrese una descripcion.
+                        </div>
                     </div>
 
                     <input type="hidden" name="id_estado_civil" value="<?php echo $_GET["estado_civil"]; ?>">
