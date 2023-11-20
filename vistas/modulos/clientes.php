@@ -29,7 +29,8 @@
                             <th>Nombre</th>
                             <th>Apellido</th>
                             <th>DNI</th>
-                            <th>EDAD</th>
+                            <th>Edad</th>
+                            <th>Fecha de Creacion</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -41,6 +42,7 @@
 
                         if ($clientes) {
                             foreach ($clientes as $key => $value) {
+                                $fecha_formateada = funciones::formatearFecha($value["fecha_creacion"]);
                                 ?>
                                 <tr>
                                     <td>
@@ -58,6 +60,9 @@
                                         $edad = ControladorClientes::ctrCalcularEdad($value['fecha_nacimiento'], $value['id_cliente']);
                                         echo $edad;
                                         ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $fecha_formateada; ?>
                                     </td>
                                     <td>
                                         <?php

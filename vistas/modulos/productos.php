@@ -35,6 +35,7 @@
                             <th>Categoria</th>
                             <th>Stock</th>
                             <th>Estado</th>
+                            <th>Fecha de Creacion</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -46,6 +47,7 @@
 
                         if ($productos) {
                             foreach ($productos as $key => $value) {
+                                $fecha_formateada = funciones::formatearFecha($value["fecha_creacion"]);
                                 if ($value["estado_producto"] == 1) {
                                     $estado = "<span class='badge badge-success'>Activo</span>";
                                 } else {
@@ -70,6 +72,9 @@
                                     </td>
                                     <td>
                                         <?php echo $estado; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $fecha_formateada; ?>
                                     </td>
                                     <td>
                                         <?php

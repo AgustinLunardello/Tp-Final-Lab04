@@ -31,6 +31,7 @@
                             <th>Tipo</th>
                             <th>Email</th>
                             <th>Estado</th>
+                            <th>Fecha de Creacion</th>
                             <th>Acciones</th>
                         </tr>
                     </thead>
@@ -42,6 +43,7 @@
 
                         if ($usuarios) {
                             foreach ($usuarios as $key => $value) {
+                                $fecha_formateada = funciones::formatearFecha($value["fecha_creacion"]);
                                 if ($value["estado_usuario"] == 1) {
                                     $estado = "<span class='badge badge-success'>Activo</span>";
                                 } else {
@@ -66,6 +68,9 @@
                                     </td>
                                     <td>
                                         <?php echo $estado; ?>
+                                    </td>
+                                    <td>
+                                        <?php echo $fecha_formateada; ?>
                                     </td>
                                     <td>
                                         <?php
