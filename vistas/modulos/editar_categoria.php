@@ -1,4 +1,9 @@
 <?php
+if ($_SESSION["tipo_usuario"] != 1) {
+    echo '<script>
+    window.location = "categorias";
+    </script>';
+}
 $categoria = ControladorCategorias::ctrMostrarCategorias("id_categoria", $_GET['categoria']);
 ?>
 <!-- Content Wrapper. Contains page content -->

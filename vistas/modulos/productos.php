@@ -4,10 +4,17 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Productos</h1>
+                    <?php
+                    if ($_SESSION['tipo_usuario'] == 1) {
+                        ?>
+                        <a href="agregar_producto" class="btn btn-primary mt-3"><i class="fa-solid fa-user-plus"></i>
+                            Agregar
+                            producto</a>
+                        <?php
+                    }
+                    ?>
 
-                    <a href="agregar_producto" class="btn btn-primary mt-3"><i class="fa-solid fa-user-plus"></i>
-                        Agregar
-                        producto</a>
+
 
                 </div>
             </div>
@@ -65,14 +72,22 @@
                                         <?php echo $estado; ?>
                                     </td>
                                     <td>
-                                        <a href="index.php?pagina=editar_producto&producto=<?php echo $value["id_producto"]; ?>"
-                                            class="btn btn-warning">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </a>
-                                        <button id_producto=<?php echo $value["id_producto"]; ?> type="button"
-                                            class="btn btn-danger btnEliminarProducto">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
+                                        <?php
+                                        if ($_SESSION['tipo_usuario'] == 1) {
+                                            ?>
+                                            <a href="index.php?pagina=editar_producto&producto=<?php echo $value["id_producto"]; ?>"
+                                                class="btn btn-warning">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a>
+                                            <button id_producto=<?php echo $value["id_producto"]; ?> type="button"
+                                                class="btn btn-danger btnEliminarProducto">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                            <?php
+                                        } else {
+                                            echo "No tienes acceso a estas acciones";
+                                        }
+                                        ?>
                                     </td>
                                 </tr>
                                 <?php

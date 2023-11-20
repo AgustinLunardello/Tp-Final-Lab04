@@ -1,4 +1,9 @@
 <?php
+if ($_SESSION["tipo_usuario"] != 1) {
+    echo '<script>
+    window.location = "estados_civiles";
+    </script>';
+}
 $estado = ControladorEstadoCivil::ctrMostrarEstadosCiviles("id_estado_civil", $_GET['estado_civil']);
 ?>
 <!-- Content Wrapper. Contains page content -->

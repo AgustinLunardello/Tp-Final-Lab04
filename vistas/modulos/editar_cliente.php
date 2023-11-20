@@ -1,4 +1,9 @@
 <?php
+if ($_SESSION["tipo_usuario"] != 1) {
+    echo '<script>
+    window.location = "clientes";
+    </script>';
+}
 
 $estados_civiles = ControladorClientes::ctrMostrarEstadosCiviles();
 

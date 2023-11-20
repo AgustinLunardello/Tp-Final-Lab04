@@ -1,4 +1,9 @@
 <?php
+if ($_SESSION["tipo_usuario"] != 1) {
+    echo '<script>
+    window.location = "productos";
+    </script>';
+}
 
 $categorias = ControladorProductos::ctrMostrarCategorias();
 

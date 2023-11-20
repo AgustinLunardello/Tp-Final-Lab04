@@ -1,3 +1,10 @@
+<?php
+if ($_SESSION["tipo_usuario"] != 1) {
+    echo '<script>
+    window.location = "categorias";
+    </script>';
+}
+?>
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->

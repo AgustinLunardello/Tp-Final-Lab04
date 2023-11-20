@@ -4,10 +4,14 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Estados Civiles</h1>
-
-                    <a href="agregar_estado_civil" class="btn btn-primary mt-3"><i class="fa-solid fa-user-plus"></i>
-                        Agregar Estado Civil</a>
-
+                    <?php
+                    if ($_SESSION['tipo_usuario'] == 1) {
+                        ?>
+                        <a href="agregar_estado_civil" class="btn btn-primary mt-3"><i class="fa-solid fa-user-plus"></i>
+                            Agregar Estado Civil</a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -50,14 +54,22 @@
                                     </td>
 
                                     <td>
-                                        <a href="index.php?pagina=editar_estado_civil&estado_civil=<?php echo $value["id_estado_civil"]; ?>"
-                                            class="btn btn-warning">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </a>
-                                        <button id_estado_civil=<?php echo $value["id_estado_civil"]; ?> type="button"
-                                            class="btn btn-danger btnEliminarEstadoCivil">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
+                                        <?php
+                                        if ($_SESSION['tipo_usuario'] == 1) {
+                                            ?>
+                                            <a href="index.php?pagina=editar_estado_civil&estado_civil=<?php echo $value["id_estado_civil"]; ?>"
+                                                class="btn btn-warning">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a>
+                                            <button id_estado_civil=<?php echo $value["id_estado_civil"]; ?> type="button"
+                                                class="btn btn-danger btnEliminarEstadoCivil">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                            <?php
+                                        } else {
+                                            echo "No tienes acceso a estas acciones";
+                                        }
+                                        ?>
                                     </td>
                                 </tr>
                                 <?php

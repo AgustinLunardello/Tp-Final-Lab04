@@ -4,10 +4,14 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Categorias</h1>
-
-                    <a href="agregar_categoria" class="btn btn-primary mt-3"><i class="fa-solid fa-user-plus"></i>
-                        Agregar Categoria</a>
-
+                    <?php
+                    if ($_SESSION['tipo_usuario'] == 1) {
+                        ?>
+                        <a href="agregar_categoria" class="btn btn-primary mt-3"><i class="fa-solid fa-user-plus"></i>
+                            Agregar Categoria</a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -50,14 +54,23 @@
                                     </td>
 
                                     <td>
-                                        <a href="index.php?pagina=editar_categoria&categoria=<?php echo $value["id_categoria"]; ?>"
-                                            class="btn btn-warning">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </a>
-                                        <button id_categoria=<?php echo $value["id_categoria"]; ?> type="button"
-                                            class="btn btn-danger btnEliminarCategoria">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
+                                        <?php
+                                        if ($_SESSION['tipo_usuario'] == 1) {
+                                            ?>
+                                            <a href="index.php?pagina=editar_categoria&categoria=<?php echo $value["id_categoria"]; ?>"
+                                                class="btn btn-warning">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a>
+                                            <button id_categoria=<?php echo $value["id_categoria"]; ?> type="button"
+                                                class="btn btn-danger btnEliminarCategoria">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                            <?php
+                                        } else {
+                                            echo "No tienes acceso a estas acciones";
+                                        }
+                                        ?>
+
                                     </td>
                                 </tr>
                                 <?php

@@ -4,10 +4,14 @@
             <div class="row mb-2">
                 <div class="col-sm-6">
                     <h1>Clientes</h1>
-
-                    <a href="agregar_cliente" class="btn btn-primary mt-3"><i class="fa-solid fa-user-plus"></i> Agregar
-                        cliente</a>
-
+                    <?php
+                    if ($_SESSION['tipo_usuario'] == 1) {
+                        ?>
+                        <a href="agregar_cliente" class="btn btn-primary mt-3"><i class="fa-solid fa-user-plus"></i> Agregar
+                            cliente</a>
+                        <?php
+                    }
+                    ?>
                 </div>
             </div>
         </div>
@@ -50,20 +54,29 @@
                                         <?php echo $value["dni_cliente"]; ?>
                                     </td>
                                     <td>
-                                        <?php 
-                                            $edad = ControladorClientes::ctrCalcularEdad($value['fecha_nacimiento'],$value['id_cliente']);
-                                            echo $edad;
+                                        <?php
+                                        $edad = ControladorClientes::ctrCalcularEdad($value['fecha_nacimiento'], $value['id_cliente']);
+                                        echo $edad;
                                         ?>
                                     </td>
                                     <td>
-                                        <a href="index.php?pagina=editar_cliente&cliente=<?php echo $value["id_cliente"]; ?>"
-                                            class="btn btn-warning">
-                                            <i class="fa-solid fa-pen-to-square"></i>
-                                        </a>
-                                        <button id_cliente=<?php echo $value["id_cliente"]; ?> type="button"
-                                            class="btn btn-danger btnEliminarCliente">
-                                            <i class="fa-solid fa-trash"></i>
-                                        </button>
+                                        <?php
+                                        if ($_SESSION['tipo_usuario'] == 1) {
+                                            ?>
+                                            <a href="index.php?pagina=editar_cliente&cliente=<?php echo $value["id_cliente"]; ?>"
+                                                class="btn btn-warning">
+                                                <i class="fa-solid fa-pen-to-square"></i>
+                                            </a>
+                                            <button id_cliente=<?php echo $value["id_cliente"]; ?> type="button"
+                                                class="btn btn-danger btnEliminarCliente">
+                                                <i class="fa-solid fa-trash"></i>
+                                            </button>
+                                            <?php
+                                        } else {
+                                            echo "No tienes acceso a estas acciones";
+                                        }
+                                        ?>
+
                                     </td>
                                 </tr>
                                 <?php
